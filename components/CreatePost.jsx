@@ -1,17 +1,13 @@
 "use client";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const CreatePost = ({ profileData, setPosts }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const supabase = createClientComponentClient();
-  const router = useRouter();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-
     const { data, error } = await supabase
       .from("posts")
       .insert({
@@ -35,8 +31,6 @@ const CreatePost = ({ profileData, setPosts }) => {
           return new Date(b.created_at) - new Date(a.created_at);
         })
       );
-
-      router.refresh();
     }
 
     setTitle("");
