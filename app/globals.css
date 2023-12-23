@@ -2,7 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+@layer components {
+  .btn-primary {
+    @apply p-2 bg-blue-500 font-bold text-white rounded-full;
+  }
+  .btn-danger {
+    @apply p-2 bg-red-500 font-bold text-white rounded-full;
+  }
+  .btn-success {
+    @apply p-2 bg-green-500 font-bold text-white rounded-full;
+  }
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: #fff; /* White background for the content */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Box shadow for a subtle lift */
+}
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -24,4 +54,4 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */
