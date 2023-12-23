@@ -78,7 +78,7 @@ const UserProfile = ({ authUserData }) => {
         avatar_url: editedAvatarURL || user.avatar_url,
       })
       .eq("id", user.id)
-      .select("*")
+      .select()
       .single();
 
     if (error) {
