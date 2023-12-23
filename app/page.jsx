@@ -1,7 +1,7 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { redirect, useRouter } from "next/navigation";
 import { cookies } from "next/headers";
-
+import { useRouter } from "next/navigation";
 import MainDashboard from "@/components/MainDashboard";
 
 export default async function Home() {
