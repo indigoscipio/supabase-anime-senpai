@@ -1,10 +1,11 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { cookies } from "next/headers";
 
 import MainDashboard from "@/components/MainDashboard";
 
 export default async function Home() {
+  const router = useRouter();
   const supabase = createServerComponentClient({ cookies });
   const {
     data: { user },
@@ -19,6 +20,8 @@ export default async function Home() {
     .select()
     .eq("id", user.id)
     .single();
+
+  router.refresh();
 
   return (
     <main>

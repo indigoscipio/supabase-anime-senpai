@@ -8,6 +8,7 @@ const CreatePost = ({ profileData, setPosts }) => {
   const supabase = createClientComponentClient();
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     const { data, error } = await supabase
       .from("posts")
       .insert({
